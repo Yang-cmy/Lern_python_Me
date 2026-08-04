@@ -1,0 +1,15 @@
+# For loop: iterate over a list
+colors = ['red', 'yellow', 'green']
+for color in colors:
+    print("For loop color:", color)
+
+# While loop: repeat while condition is true
+count = 0
+while count < 3:
+    print("While loop count:", count)
+    count += 1
+
+# Nested loop: for loop inside another for loop
+for i in range(1, 4):  # Outer loop
+    for j in range(1, 3):  # Inner loop
+        print(f"Nested loop i={i}, j={j}")

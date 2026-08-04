@@ -1,0 +1,116 @@
+def calculate_tax(income):
+    tax_1 = 0
+    tax_2 = max(0, min(income, 300000) - 150000) * 0.05
+    tax_3 = max(0, min(income, 500000) - 300000) * 0.10
+    tax_4 = max(0, min(income, 750000) - 500000) * 0.15
+    tax_5 = max(0, min(income, 1000000) - 750000) * 0.20
+    tax_6 = max(0, min(income, 2000000) - 1000000) * 0.25
+    tax_7 = max(0, min(income, 5000000) - 2000000) * 0.30
+    tax_8 = max(0, income - 5000000) * 0.35
+
+    taxes = [
+        tax_1,
+        tax_2,
+        tax_3,
+        tax_4,
+        tax_5,
+        tax_6,
+        tax_7,
+        tax_8
+    ]
+
+    total_tax = sum(taxes)
+    income_after_tax = income - total_tax
+
+    if income == 0:
+        effective_rate = 0
+    else:
+        effective_rate = (total_tax / income) * 100
+
+    return taxes, total_tax, income_after_tax, effective_rate
+
+
+def display_tax_details(
+    income,
+    taxes,
+    total_tax,
+    income_after_tax,
+    effective_rate
+):
+    print("\n========== รายละเอียดภาษี ==========")
+    print(f"0 - 150,000 บาท              {taxes[0]:,.2f} บาท")
+
+    if income > 150000:
+        upper = min(income, 300000)
+        print(
+            f"150,001 - {upper:,.0f} บาท"
+            f"          {taxes[1]:,.2f} บาท"
+        )
+
+    if income > 300000:
+        upper = min(income, 500000)
+        print(
+            f"300,001 - {upper:,.0f} บาท"
+            f"          {taxes[2]:,.2f} บาท"
+        )
+
+    if income > 500000:
+        upper = min(income, 750000)
+        print(
+            f"500,001 - {upper:,.0f} บาท"
+            f"          {taxes[3]:,.2f} บาท"
+        )
+
+    if income > 750000:
+        upper = min(income, 1000000)
+        print(
+            f"750,001 - {upper:,.0f} บาท"
+            f"          {taxes[4]:,.2f} บาท"
+        )
+
+    if income > 1000000:
+        upper = min(income, 2000000)
+        print(
+            f"1,000,001 - {upper:,.0f} บาท"
+            f"        {taxes[5]:,.2f} บาท"
+        )
+
+    if income > 2000000:
+        upper = min(income, 5000000)
+        print(
+            f"2,000,001 - {upper:,.0f} บาท"
+            f"        {taxes[6]:,.2f} บาท"
+        )
+
+    if income > 5000000:
+        print(
+            f"มากกว่า 5,000,000 บาท"
+            f"             {taxes[7]:,.2f} บาท"
+        )
+
+    print("====================================")
+    print(f"ภาษีรวม:              {total_tax:,.2f} บาท")
+    print(f"รายได้หลังหักภาษี:    {income_after_tax:,.2f} บาท")
+    print(f"Effective Tax Rate:   {effective_rate:.2f}%")
+
+
+def main():
+    income = float(input("กรอกเงินได้สุทธิ: "))
+
+    if income < 0:
+        print("เงินได้สุทธิต้องไม่ติดลบ")
+        return
+
+    taxes, total_tax, income_after_tax, effective_rate = calculate_tax(income)
+
+    display_tax_details(
+        income,
+        taxes,
+        total_tax,
+        income_after_tax,
+        effective_rate
+    )
+
+
+if __name__ == "__main__":
+    main()
