@@ -1,13 +1,13 @@
 class Student():
-    def __init__(self, name, score):
+    def __init__(self, name, score): #i finally know how useful class is to modify a data using __init__ function
         self.name = name
         self.score = score
 
-student1 = Student("Alice", 85)
-student2 = Student("Bob", 92)
+student1 = Student("Alice", 85) #No shit how could i know that it had to create seperate object first in order to Modify it
+student2 = Student("Bob", 92) #And this is object by the way
 student3 = Student("Charlie", 78)
 
-def load_students(filename):
+def load_students(filename): #create a function this function do all shit contain everything i dont even know about
     students =[]
 
     with open(filename, "r") as file:
@@ -22,7 +22,7 @@ def load_students(filename):
 
         return students
 
-def print_students(students):
+def print_students(students): #wtf how is this work?
     for student in students:
         print(f"{student.name} - {student.score}")
 
