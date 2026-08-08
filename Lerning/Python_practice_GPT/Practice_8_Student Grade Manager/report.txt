@@ -1,0 +1,3 @@
+Alice - Average: 85.0
+Bob - Average: 91.33333333333333
+Charlie - Average: 78.0
