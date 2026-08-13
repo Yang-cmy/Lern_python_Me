@@ -1,0 +1,3 @@
+P001,Keyboard,10
+P002,Mouse,25
+P003,Monitor,8

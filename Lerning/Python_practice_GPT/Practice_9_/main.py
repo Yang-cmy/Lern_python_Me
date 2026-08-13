@@ -14,7 +14,7 @@ def load_student(filename): # this whole function make me confuse at first
             new_student = student_info(line_id, line_name, line_score) # create a object format function and then append to list error what?
             students.append(new_student)
 
-        return students
+        return students #return immediately ends the function. If you put it inside a loop
 
 def add_bonus(students, bonus):
     for s in students:
